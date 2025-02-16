@@ -1,7 +1,6 @@
 import { EditableSpan } from "common/components"
 import { TaskStatus } from "common/enums"
 import { DomainTask, UpdateTaskModel } from "../../../../../api/tasksApi.types"
-import { DomainTodolist } from "../../../../../model/todolistsSlice"
 import { getListItemSx } from "./Task.styles"
 import { ChangeEvent } from "react"
 import DeleteIcon from "@mui/icons-material/Delete"
@@ -9,6 +8,7 @@ import Checkbox from "@mui/material/Checkbox"
 import IconButton from "@mui/material/IconButton"
 import ListItem from "@mui/material/ListItem"
 import { useRemoveTaskMutation, useUpdateTaskMutation } from "../../../../../api/tasksApi"
+import { DomainTodolist } from "../../../../../libs/types/types"
 
 type Props = {
   task: DomainTask

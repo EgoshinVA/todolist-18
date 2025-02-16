@@ -1,15 +1,20 @@
 import List from "@mui/material/List"
 import { TaskStatus } from "common/enums"
-import { DomainTodolist } from "../../../../model/todolistsSlice"
 import { Task } from "./Task/Task"
 import { useGetTasksQuery } from "../../../../api/tasksApi"
+import { TasksSkeleton } from "../../Skeletons/TasksSkeleton"
+import { DomainTodolist } from "../../../../libs/types/types"
 
 type Props = {
   todolist: DomainTodolist
 }
 
 export const Tasks = ({ todolist }: Props) => {
-  const { data } = useGetTasksQuery(todolist.id)
+  const { data, isLoading } = useGetTasksQuery(todolist.id)
+
+  if(isLoading) {
+    return <TasksSkeleton/>
+  }
 
   let tasksForTodolist = data?.items
 
