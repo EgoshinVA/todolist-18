@@ -1,5 +1,4 @@
 import { AddItemForm } from "common/components"
-
 import { FilterTasksButtons } from "./FilterTasksButtons/FilterTasksButtons"
 import { Tasks } from "./Tasks/Tasks"
 import { TodolistTitle } from "./TodolistTitle/TodolistTitle"
@@ -20,7 +19,7 @@ export const Todolist = ({ todolist }: Props) => {
   return (
     <>
       <TodolistTitle todolist={todolist} />
-      <AddItemForm addItem={addTaskCallback} disabled={todolist.entityStatus === "loading"} />
+      <AddItemForm addItem={addTaskCallback} />
       <Tasks todolist={todolist} />
       <FilterTasksButtons todolist={todolist} />
     </>
